@@ -2,7 +2,16 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
+
 import duaPage from '@/public/assets/dua-logo.svg'
+import homePage from '@/public/assets/nav/home.svg'
+import allDua from '@/public/assets/nav/alldua.svg'
+import memorize from '@/public/assets/nav/memorize.svg'
+import bookMark from '@/public/assets/nav/bookmark.svg'
+import ruqyah from '@/public/assets/nav/ruqyah.svg'
+import duaInfo from '@/public/assets/nav/dua-info.svg'
+import books from '@/public/assets/nav/books.svg'
+
 const inter = Inter({ subsets: ["latin"] });
 
 
@@ -41,7 +50,7 @@ export default function RootLayout({ children }) {
                       <div className="p-2 flex flex-row justify-center items-center">
                         <div className=" bg-[#f7f8fa] dark:bg-dark-bg-dark flex p-2 rounded-full items-center h-10 w-10 justify-center">
                           <Image
-                            src="../public/assets/nav/home.svg"
+                            src={homePage}
                             alt="/"
                             width={20}
                             height={20}
@@ -57,7 +66,7 @@ export default function RootLayout({ children }) {
                       <div className="p-2 flex flex-row justify-center items-center">
                         <div className=" bg-[#f7f8fa] dark:bg-dark-bg-dark flex p-2 rounded-full items-center h-10 w-10 justify-center">
                           <Image
-                            src="../public/assets/nav/alldua.svg"
+                            src={allDua}
                             alt="/alldua"
                             width={20}
                             height={20}
@@ -73,7 +82,7 @@ export default function RootLayout({ children }) {
                       <div className="p-2 flex flex-row justify-center items-center">
                         <div className=" bg-[#f7f8fa] dark:bg-dark-bg-dark flex p-2 rounded-full items-center h-10 w-10 justify-center">
                           <Image
-                            src="../public/assets/nav/memorize.svg"
+                            src={memorize}
                             alt="/memorize"
                             width={20}
                             height={20}
@@ -89,7 +98,7 @@ export default function RootLayout({ children }) {
                       <div className="p-2 flex flex-row justify-center items-center">
                         <div className=" bg-[#f7f8fa] dark:bg-dark-bg-dark flex p-2 rounded-full items-center h-10 w-10 justify-center">
                           <Image
-                            src="../public/assets/nav/bookmark.svg"
+                            src={bookMark}
                             alt="/bookmark"
                             width={20}
                             height={20}
@@ -105,7 +114,7 @@ export default function RootLayout({ children }) {
                       <div className="p-2 flex flex-row justify-center items-center">
                         <div className=" bg-[#f7f8fa] dark:bg-dark-bg-dark flex p-2 rounded-full items-center h-10 w-10 justify-center">
                           <Image
-                            src="../public/assets/nav/ruqyah.svg"
+                            src={ruqyah}
                             alt="/ruqyah"
                             width={20}
                             height={20}
@@ -121,7 +130,7 @@ export default function RootLayout({ children }) {
                       <div className="p-2 flex flex-row justify-center items-center">
                         <div className=" bg-[#f7f8fa] dark:bg-dark-bg-dark flex p-2 rounded-full items-center h-10 w-10 justify-center">
                           <Image
-                            src="../public/assets/nav/dua-info.svg"
+                            src={duaInfo}
                             alt="/dua-info"
                             width={20}
                             height={20}
@@ -137,7 +146,7 @@ export default function RootLayout({ children }) {
                       <div className="p-2 flex flex-row justify-center items-center">
                         <div className=" bg-[#f7f8fa] dark:bg-dark-bg-dark flex p-2 rounded-full items-center h-10 w-10 justify-center">
                           <Image
-                            src="../public/assets/nav/books.svg"
+                            src={books}
                             alt="/books"
                             width={20}
                             height={20}
