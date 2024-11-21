@@ -19,6 +19,21 @@ app.get("/api/categories", (req, res) => {
 });
 
 
+// Endpoint for fetching all sub_categories
+
+app.get("/api/sub_categories", (req, res) => {
+    db.all("SELECT * FROM sub_category", (err, rows) => {
+      if (err) {
+        console.error(err.message);
+        res.status(500).json({ error: "Internal Server Error" });
+      } else {
+        res.json(rows);
+      }
+    });
+  });
+  
+
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
