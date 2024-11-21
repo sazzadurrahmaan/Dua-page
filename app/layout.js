@@ -259,8 +259,8 @@ export default function RootLayout({ children }) {
 
                   {/* Language Settings */}
                   <div className="bg-transparent rounded-lg mb-6 border border-gray-300 ">
-                    <div className="flex justify-between items-center mb-4 bg-gray-100 rounded-md">
-                      <div className=" flex p-2  justify-center items-center mr-4">
+                    <div className="flex justify-evenly gap-3 items-center mb-4 bg-gray-100 rounded-md ">
+                      <div className=" flex p-2  justify-center items-center ">
                         <Image
                           src={languageIcon}
                           alt="language icon"
@@ -269,7 +269,7 @@ export default function RootLayout({ children }) {
                           className="text-green-400"
                         />
                       </div>
-                      <p className=" font-semibold text-green-500">
+                      <p className=" font-semibold text-green-500 ">
                         Language Settings
                       </p>
                     </div>

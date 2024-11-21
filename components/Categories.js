@@ -46,7 +46,7 @@ export default function Categories({ categories, subcategories, duas }) {
     };
 
     return (
-        <div className="w-[28%] md:ml-6 lg:ml-0 rounded-xl h-[86vh] border bg-white hidden md:block">
+        <div className="w-[28%] sm:mx-12 lg:mx-6 rounded-xl h-[86vh] border bg-white hidden md:block">
             <div className="rounded-t-lg bg-[#1fa45b] justify-center items-center h-14 flex flex-row px-5">
                 <p className="text-base text-white mx-auto">Categories</p>
             </div>
@@ -73,7 +73,7 @@ export default function Categories({ categories, subcategories, duas }) {
                         />
                     </label>
                 </div>
-                <div className='h-[calc(100vh-32vh)]  3xl:h-[68vh]" scrl-cat pb-8 mb-4 overflow-y-scroll'>
+                <div className='h-[calc(100vh-32vh)]  3xl:h-[68vh]" scrl-cat pb-8 mb-4 overflow-y-auto scrollbar-thin'>
                     <div onClick={handleCategoryClick}>
                         {filteredCategories.map((category, i) => (
                             <div key={i}>

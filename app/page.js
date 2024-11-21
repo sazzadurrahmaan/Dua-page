@@ -33,7 +33,7 @@ export default async function Home() {
           duas={duas}
         />
       {/* ---End Category----- */}
-      <div className="w-[98%] md:w-[72%] overflow-y-scroll ">
+      <div className="w-[98%] md:w-[72%] overflow-y-auto scrollbar-thin ">
           <div className="flex flex-row justify-between mb-5 px-5 py-4 bg-white rounded-2lg items-center cursor-pointer dark:bg-dark-bg md:hidden">
             <p className="flex gap-x-2 style-Kalpurush text-title font-medium leading-[25px]  dark:text-dark-text text-mss ">
               <svg
