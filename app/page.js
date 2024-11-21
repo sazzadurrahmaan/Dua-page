@@ -1,11 +1,18 @@
 import { getCategory } from "@/utils/getCategory";
+import { getSubCategory } from "@/utils/getSubCategory";
 import Image from "next/image";
 
 export default async function Home() {
+
   const category = await getCategory();
   const categories = await category.props.categories;
 
+  
+  const subcategory = await getSubCategory();
+  const subcategories = await subcategory.props.subcategories;
+
   console.log(categories,"categories")
+  console.log(subcategories,"sub categories")
 
   return (
     <>
