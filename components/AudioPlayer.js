@@ -9,20 +9,28 @@ import suffle from '@/public/assets/suffle.svg';
 
 function AudioPlayer({ audioSrc }) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(null); // Initialize as null for SSR
+  const audioRef = useRef(null);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isLoopActive, setIsLoopActive] = useState(false);
   const [error, setError] = useState(null);
 
   const handleAudioToggle = () => {
+    if (!audioSrc || !audioRef.current) {
+      setError("Audio source is missing or invalid.");
+      console.error("Audio source is missing or invalid.");
+      return;
+    }
+
     if (isPlaying) {
       audioRef.current.pause();
     } else {
-      audioRef.current.play().catch((err) => {
-        setError("Audio playback failed.");
-        console.error("Playback error:", err);
-      });
+      audioRef.current
+        .play()
+        .catch((err) => {
+          setError("Audio playback failed.");
+          console.error("Playback error:", err);
+        });
     }
     setIsPlaying(!isPlaying);
   };
@@ -38,7 +46,7 @@ function AudioPlayer({ audioSrc }) {
 
   useEffect(() => {
     const audioElement = audioRef.current;
-    if (!audioElement) return;
+    if (!audioElement || !audioSrc) return;
 
     const handleLoadedMetadata = () => {
       setDuration(audioElement.duration);
@@ -57,11 +65,11 @@ function AudioPlayer({ audioSrc }) {
       audioElement.removeEventListener("loadedmetadata", handleLoadedMetadata);
       audioElement.removeEventListener("error", handlePlaybackError);
     };
-  }, [audioRef]);
+  }, [audioSrc]);
 
   return (
     <div className="py-4 flex flex-row items-center xs:w-full xs:gap-x-4">
-      <audio ref={audioRef} src={audioSrc} />
+      {audioSrc && <audio ref={audioRef} src={audioSrc} />}
 
       {audioSrc ? (
         <div className="flex flex-row items-center gap-x-3 xs:w-full">
@@ -74,30 +82,29 @@ function AudioPlayer({ audioSrc }) {
             onClick={handleAudioToggle}
           />
 
-          <input
-            className={isPlaying ? "" : "hidden"}
-            type="range"
-            min={0}
-            max={duration}
-            value={currentTime}
-            onChange={(e) => {
-              audioRef.current.currentTime = e.target.value;
-              setCurrentTime(e.target.value);
-            }}
-            style={{
-              backgroundSize: `${(currentTime / duration) * 100}% 100%`,
-            }}
-          />
+          <div className="flex flex-col items-center w-full">
+            <input
+              className={isPlaying ? "" : "hidden"}
+              type="range"
+              min={0}
+              max={duration}
+              value={currentTime}
+              onChange={(e) => {
+                audioRef.current.currentTime = e.target.value;
+                setCurrentTime(e.target.value);
+              }}
+              style={{
+                backgroundSize: `${(currentTime / duration) * 100}% 100%`,
+              }}
+            />
+            <p className="ml-2 text-mute-grey-200 text-sm dark:text-dark-text mt-1 whitespace-nowrap">
+              {formatTime(currentTime)} / {formatTime(duration)}
+            </p>
+          </div>
         </div>
       ) : (
         ""
       )}
-
-      <div className={isPlaying ? "" : "hidden"}>
-        <p className="ml-2 text-mute-grey-200 text-sm dark:text-dark-text">
-          {formatTime(currentTime)} / {formatTime(duration)}
-        </p>
-      </div>
 
       <div className={isPlaying ? "" : "hidden"}>
         <Image
