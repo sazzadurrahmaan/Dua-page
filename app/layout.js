@@ -14,7 +14,7 @@ import books from '@/public/assets/nav/books.svg'
 import iWantToSupport from '@/public/assets/support.svg'
 import searchIcon from '@/public/assets/search.svg'
 import profile from '@/public/assets/profile1.svg'
-import languageIcon from '@/public/assets/icon/language.svg'
+import languageIcon from '@/public/assets/sidebar/language.svg'
 import general from '@/public/assets/sidebar/general.svg'
 import fontSettings from '@/public/assets/sidebar/font.svg'
 

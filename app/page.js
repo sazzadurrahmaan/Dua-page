@@ -4,6 +4,7 @@ import { getCategory } from "@/utils/getCategory";
 import { getDua } from "@/utils/getDua";
 import { getSubCategory } from "@/utils/getSubCategory";
 import Image from "next/image";
+import duaCard from '@/public/assets/duacard.svg'
 
 export default async function Home() {
   //get all category
@@ -18,9 +19,7 @@ export default async function Home() {
   const dua = await getDua();
   const duas = await dua.props.dua;
 
-  console.log(categories,"categories")
-  console.log(subcategories,"sub categories")
-  console.log(duas,"duas")
+  console.log(categories,"categories world")
 
   return (
     <>
@@ -83,7 +82,7 @@ export default async function Home() {
                         <div>
                           <div className="flex flex-row  justify-start items-center ">
                             <Image
-                              src="/assets/duacard.svg"
+                              src={duaCard}
                               alt="duacard"
                               className="mr-3"
                               height={30}

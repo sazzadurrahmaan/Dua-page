@@ -2,7 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import searchIcon from '@/public/assets/search.svg'
+import searchIcon from '@/public/assets/search.svg';
+import duaarrow from '@/public/assets/duaarrow.svg';
 
 export default function Categories({ categories, subcategories, duas }) {
     const [openStates, setOpenStates] = useState({});
@@ -44,6 +45,7 @@ export default function Categories({ categories, subcategories, duas }) {
             });
         }
     };
+
 
     return (
         <div className="w-[28%] sm:mx-12 lg:mx-6 rounded-xl h-[86vh] border bg-white hidden md:block">
@@ -96,11 +98,12 @@ export default function Categories({ categories, subcategories, duas }) {
                                                         <div className="bg-[#f7f8fa] dark:bg-dark-bg flex rounded-lg items-center h-14 w-14 xs:w-12 xs:h-12 ">
                                                             <Image
                                                                 src={`/assets/icon/${category.cat_icon}.svg`}
-                                                                alt="duar_gurutto"
+                                                                alt={category.cat_name_en}
                                                                 className="p-3"
                                                                 width={100}
                                                                 height={100}
                                                             />
+
                                                         </div>
                                                         <div className="w-40 text-left ml-2">
                                                             <p className="text-base text-slate-700 -cat dark:text-dark-text sm:text-mss">
@@ -174,7 +177,7 @@ export default function Categories({ categories, subcategories, duas }) {
                                                                                         >
                                                                                             <div className="flex flex-row ">
                                                                                                 <Image
-                                                                                                    src="/assets/duaarrow.svg"
+                                                                                                    src={duaarrow}
                                                                                                     className="-translate-y-1 mr-2"
                                                                                                     alt="dua"
                                                                                                     width={20}
