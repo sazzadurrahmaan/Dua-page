@@ -12,7 +12,8 @@ import ruqyah from '@/public/assets/nav/ruqyah.svg'
 import duaInfo from '@/public/assets/nav/dua-info.svg'
 import books from '@/public/assets/nav/books.svg'
 import iWantToSupport from '@/public/assets/support.svg'
-
+import searchIcon from '@/public/assets/search.svg'
+import profile from '@/public/assets/profile1.svg'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -182,32 +183,27 @@ export default function RootLayout({ children }) {
               {" "}
               <div className=" flex items-center h-full">
                 <div className="w-5/6 flex justify-between h-full items-center">
-                  <Link className="md:hidden" href="/">
-                    <Image
-                      src={duaPage}
-                      alt="dua-logo"
-                      className="h-12 w-12 md:hidden mx-auto drop-shadow-[#1fa45b] xl:mb-0 cursor-pointer"
-                      width={20}
-                      height={20}
-                    />
+                  <Link href="/">
+                    <p className="md:text-xl xl:text-2xl hidden md:block ">
+                      Dua Page
+                    </p>
                   </Link>
-                  <p className="md:text-xl xl:text-2xl hidden md:block ">
-                    Dua Page
-                  </p>
-                  <div className="sm:flex mr-16 hidden ">
-                    <input
-                      className=" border rounded-md mr-6  sm:w-[250px] md:w-[350px] placeholder:text-mute-grey dark:placeholder:text-[#96a2b4] block placeholder: placeholder:text-sm bg-white  py-[0.75rem] px-4 shadow-sm focus:outline-none focus:border-[#1fa45b] focus:ring-[#1fa45b] focus:ring-1  sm:text-sm sm-max:dark:bg-dark-bg-lite md:dark:bg-dark-bg-dark dark:bg-dark-bg dark:placeholder:opacity-[.6] lg:dark:bg-dark-bg-dark "
-                      type="text"
-                      placeholder="Search by Dua Name"
-                    />
-                    <div className="rounded-lg ml-[-70px]  flex justify-center items-center">
-                      <Image
-                        alt="search-icon"
-                        src={"/assets/search-icon.svg"}
-                        width={20}
-                        height={20}
-                        className=""
+                  <div className="sm:flex mr-16 hidden items-center">
+                    <div className="relative w-full">
+                      <input
+                        className="border rounded-md sm:w-[250px] md:w-[350px] placeholder:text-mute-grey dark:placeholder:text-[#96a2b4] block placeholder:text-sm bg-white py-[0.75rem] pl-4 pr-12 shadow-sm focus:outline-none focus:border-[#1fa45b] focus:ring-[#1fa45b] focus:ring-1 sm:text-sm sm-max:dark:bg-dark-bg-lite md:dark:bg-dark-bg-dark dark:bg-dark-bg dark:placeholder:opacity-[.6] lg:dark:bg-dark-bg-dark"
+                        type="text"
+                        placeholder="Search by Dua Name"
                       />
+                      <div className="absolute inset-y-1 right-2 flex items-center justify-center bg-gray-100 rounded-md p-3 cursor-pointer">
+                        <Image
+                          alt="search-icon"
+                          src={searchIcon}
+                          width={20}
+                          height={20}
+                          className=""
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -215,7 +211,7 @@ export default function RootLayout({ children }) {
                   <div className="flex justify-end items-center gap-4">
                     {" "}
                     <Image
-                      src="/assets/settings/profile.svg"
+                      src={profile}
                       alt="profile"
                       width={45}
                       height={45}
