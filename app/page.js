@@ -32,8 +32,8 @@ export default async function Home() {
           duas={duas}
         />
     </div>
-
       {/* ---End Category----- */}
+
   </>
   );
 }

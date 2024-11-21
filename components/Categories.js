@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import searchIcon from '@/public/assets/search.svg'
 
 export default function Categories({ categories, subcategories, duas }) {
     const [openStates, setOpenStates] = useState({});
@@ -54,7 +55,7 @@ export default function Categories({ categories, subcategories, duas }) {
                     <label className="relative block w-full">
                         <span className="absolute inset-y-0 left-0 flex items-center pl-4">
                             <Image
-                                src={"/assets/search-icon.svg"}
+                                src={searchIcon}
                                 width={22}
                                 height={22}
                                 alt="search-icon"
