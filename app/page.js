@@ -3,16 +3,21 @@ import { getSubCategory } from "@/utils/getSubCategory";
 import Image from "next/image";
 
 export default async function Home() {
-
+  //get all category
   const category = await getCategory();
   const categories = await category.props.categories;
 
-  
+  //get subcategories
   const subcategory = await getSubCategory();
   const subcategories = await subcategory.props.subcategories;
 
+  //get duas
+  const dua = await getDua();
+  const duas = await dua.props.dua;
+
   console.log(categories,"categories")
   console.log(subcategories,"sub categories")
+  console.log(duas,"duas")
 
   return (
     <>
