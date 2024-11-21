@@ -20,4 +20,20 @@ hrml {
   scroll-behavior:smooth,
 }
 
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin; /* For Firefox */
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px; /* Adjust the width of the scrollbar */
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #9ca3af; /* Thumb color (gray-400 in Tailwind) */
+    border-radius: 8px; /* Makes the thumb rounded */
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background-color: #f3f4f6; /* Track color (gray-100 in Tailwind) */
+  }
+}
+
 
