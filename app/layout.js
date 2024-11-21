@@ -14,6 +14,10 @@ import books from '@/public/assets/nav/books.svg'
 import iWantToSupport from '@/public/assets/support.svg'
 import searchIcon from '@/public/assets/search.svg'
 import profile from '@/public/assets/profile1.svg'
+import languageIcon from '@/public/assets/icon/language.svg'
+import general from '@/public/assets/sidebar/general.svg'
+import fontSettings from '@/public/assets/sidebar/font.svg'
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -243,6 +247,90 @@ export default function RootLayout({ children }) {
             {/* ---End Top-bar--- */}
 
             {children}
+
+            {/* ---start Right-bar--- */}
+            <div className="col-span-2 row-span-11 h-[86vh] hidden xl:block  col-start-11 rounded-3xl bg-white border">
+              <div className="pt-9 pb-6">
+                <div className=" bg-white shadow-md rounded-lg p-4">
+                  {/* Settings Header */}
+                  <div className="text-center mb-6">
+                    <h1 className="text-xl font-semibold text-gray-500">Settings</h1>
+                  </div>
+
+                  {/* Language Settings */}
+                  <div className="bg-transparent rounded-lg mb-6 border border-gray-300 ">
+                    <div className="flex justify-between items-center mb-4 bg-gray-100 rounded-md">
+                      <div className=" flex p-2  justify-center items-center mr-4">
+                        <Image
+                          src={languageIcon}
+                          alt="language icon"
+                          width="full"
+                          height="auto"
+                          className="text-green-400"
+                        />
+                      </div>
+                      <p className=" font-semibold text-green-500">
+                        Language Settings
+                      </p>
+                    </div>
+
+                    {/* Language Buttons */}
+                    <div className="flex justify-center  flex-col gap-2 w-1/2 mx-auto my-2">
+                      <button className="w-full py-2 px-4 rounded-md bg-green-600 text-white text-center flex items-center justify-center mr-2">
+                        English
+                      </button>
+                      <button className="w-full py-2 px-4 rounded-md bg-gray-200 text-gray-500  text-center flex items-center justify-center">
+                        বাংলা
+                      </button>
+                    </div>
+
+                  </div>
+
+                  {/* General Settings */}
+                  <div className="bg-gray-100 rounded-lg p-4 mb-4 flex items-center">
+                    <div className="bg-gray-200 flex p-2 rounded-full justify-center items-center mr-4">
+                      <Image
+                        src={general}
+                        alt="/general"
+                        width="full"
+                        height="auto"
+
+                      />
+                    </div>
+                    <p className="text-gray-500 font-semibold">General Settings</p>
+                  </div>
+
+                  {/* Font Settings */}
+                  <div className="bg-gray-100 rounded-lg p-4 mb-4 flex items-center">
+                    <div className="bg-gray-200 flex p-2 rounded-full justify-center items-center mr-4">
+                      <Image
+                        src={fontSettings}
+                        alt="/font"
+                        width="full"
+                        height="auto"
+
+                      />
+                    </div>
+                    <p className="text-gray-500 font-semibold">Font Settings</p>
+                  </div>
+
+                  {/* Appearance Settings */}
+                  <div className="bg-gray-100 rounded-lg p-4 flex items-center">
+                    <div className="bg-gray-200 flex p-2 rounded-full justify-center items-center mr-4">
+                      <Image
+                        src={fontSettings}
+                        alt="/appearance"
+                        width="full"
+                        height="auto"
+
+                      />
+                    </div>
+                    <p className="text-gray-500 font-semibold">Appearance Settings</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* ---End Right-bar--- */}
           </div>
         </div>
       </body>
