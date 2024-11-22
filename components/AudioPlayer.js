@@ -52,8 +52,9 @@ function AudioPlayer({ audioSrc }) {
       setDuration(audioElement.duration);
     };
 
-    const handlePlaybackError = () => {
+    const handlePlaybackError = (event) => {
       setError("An error occurred while trying to play the audio.");
+      console.error("Audio playback error:", event);
     };
 
     audioElement.addEventListener("timeupdate", handleTimeUpdate);
@@ -67,9 +68,19 @@ function AudioPlayer({ audioSrc }) {
     };
   }, [audioSrc]);
 
+  // Reset playback state when audioSrc changes
+  useEffect(() => {
+    setIsPlaying(false);
+    setCurrentTime(0);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  }, [audioSrc]);
+
   return (
     <div className="py-4 flex flex-row items-center xs:w-full xs:gap-x-4">
-      {audioSrc && <audio ref={audioRef} src={audioSrc} />}
+      {audioSrc && <audio ref={audioRef} src={audioSrc} crossOrigin="anonymous" />}
 
       {audioSrc ? (
         <div className="flex flex-row items-center gap-x-3 xs:w-full">
@@ -103,7 +114,7 @@ function AudioPlayer({ audioSrc }) {
           </div>
         </div>
       ) : (
-        ""
+        <p className="text-red-500">Audio source not available.</p>
       )}
 
       <div className={isPlaying ? "" : "hidden"}>
@@ -117,7 +128,7 @@ function AudioPlayer({ audioSrc }) {
         />
       </div>
 
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-red-500">Error: {error}</p>}
     </div>
   );
 }

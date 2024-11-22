@@ -48,7 +48,7 @@ export default function Categories({ categories, subcategories, duas }) {
 
 
     return (
-        <div className="w-[28%] sm:mx-12 lg:mx-6 rounded-xl h-[86vh] border bg-white hidden md:block">
+        <div className="w-[35%] sm:mx-6 lg:mx-4 rounded-xl h-[86vh] border bg-white hidden sm:flex md:block flex-col space-y-2 items-start">
             <div className="rounded-t-lg bg-[#1fa45b] justify-center items-center h-14 flex flex-row px-5">
                 <p className="text-base text-white mx-auto">Categories</p>
             </div>

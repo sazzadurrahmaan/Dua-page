@@ -4,7 +4,13 @@ import { getCategory } from "@/utils/getCategory";
 import { getDua } from "@/utils/getDua";
 import { getSubCategory } from "@/utils/getSubCategory";
 import Image from "next/image";
-import duaCard from '@/public/assets/duacard.svg'
+
+import duaCard from '@/public/assets/duacard.svg';
+import copyImage from '@/public/assets/copy.svg';
+import bookmark from '@/public/assets/nav/bookmark.svg';
+import plan from '@/public/assets/plan.svg';
+import share from '@/public/assets/share.svg';
+import report from '@/public/assets/report.svg';
 
 export default async function Home() {
   //get all category
@@ -19,12 +25,12 @@ export default async function Home() {
   const dua = await getDua();
   const duas = await dua.props.dua;
 
-  console.log(categories,"categories world")
+
 
   return (
     <>
     {/* ---Start middle part--- */}
-    <div className="col-span-12 xl:col-span-9 row-span-11 flex gap-4 xl:ml-[-30px] ">
+    <div className="col-span-12 xl:col-span-9 row-span-11 flex gap-4 justify-center">
       {/* ---Start Category----- */}
       <Categories
           categories={categories}
@@ -32,7 +38,7 @@ export default async function Home() {
           duas={duas}
         />
       {/* ---End Category----- */}
-      <div className="w-[98%] md:w-[72%] overflow-y-auto scrollbar-thin ">
+      <div className="w-[98%] md:w-[75%] overflow-y-auto scrollbar-thin ">
           <div className="flex flex-row justify-between mb-5 px-5 py-4 bg-white rounded-2lg items-center cursor-pointer dark:bg-dark-bg md:hidden">
             <p className="flex gap-x-2 style-Kalpurush text-title font-medium leading-[25px]  dark:text-dark-text text-mss ">
               <svg
@@ -71,7 +77,7 @@ export default async function Home() {
                 </div>
                 {/* ---Dua Div--- */}
                 {duas
-                  .filter((dua) => dua.subcat_id === subcategory.subcat_id)
+                  ?.filter((dua) => dua?.subcat_id === subcategory?.subcat_id)
                   .map((dua, i) => (
                     <div
                       key={i}
@@ -90,7 +96,7 @@ export default async function Home() {
                             />
 
                             <p className="text-[#1fa45b] font-medium -dua-title">
-                              {dua.dua_name_en}
+                              {dua?.dua_name_en}
                             </p>
                           </div>
                         </div>
@@ -111,11 +117,11 @@ export default async function Home() {
                                 fontFamily: "me_quran",
                               }}
                             >
-                              {dua.dua_arabic}
+                              {dua?.dua_arabic}
                             </p>
 
                             <p />
-                            {dua.transliteration_en ? (
+                            {dua?.transliteration_en ? (
                               <p
                                 className=" my-5 text-justify leading-8 italic text-[#383838]"
                                 style={{ fontSize: 18 }}
@@ -127,12 +133,12 @@ export default async function Home() {
                                 >
                                   Transliteration:
                                 </span>{" "}
-                                <span> {dua.transliteration_en}</span>
+                                <span> {dua?.transliteration_en}</span>
                               </p>
                             ) : (
                               ""
                             )}
-                            {dua.translation_en ? (
+                            {dua?.translation_en ? (
                               <p
                                 id="translation"
                                 className=" my-5 text-title text-justify font-normal text-[#383838]"
@@ -144,7 +150,7 @@ export default async function Home() {
                                 >
                                   Translation:
                                 </span>{" "}
-                                <span> {dua.translation_en}</span>
+                                <span> {dua?.translation_en}</span>
                               </p>
                             ) : (
                               ""
@@ -161,19 +167,19 @@ export default async function Home() {
                               className="mt-1   font-normal dark:text-dark-text text-[#383838]"
                               style={{ fontSize: 18 }}
                             >
-                              <span> {dua.refference_en}</span>
+                              <span> {dua?.refference_en}</span>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div>
                         <div className="flex flex-col sm:flex-row items-center justify-between px-6">
-                          <AudioPlayer audioSrc={dua.audio} />
+                          <AudioPlayer audioSrc={dua?.audio} />
                           <div className="flex items-center flex-row justify-between py-6 gap-x-8 xs:gap-x-6">
                             <div id="copy" className="relative w-6">
                               <Image
                                 className="cursor-pointer"
-                                src="/assets/others/copy.svg"
+                                src={copyImage}
                                 alt="copy"
                                 width={30}
                                 height={30}
@@ -182,7 +188,7 @@ export default async function Home() {
                             <div id="bookmark" className="relative w-6">
                               <Image
                                 className="cursor-pointer"
-                                src="/assets/others/bookmark.svg"
+                                src={bookmark}
                                 alt="bookmark"
                                 width={30}
                                 height={30}
@@ -191,7 +197,7 @@ export default async function Home() {
                             <div id="plan" className="relative w-6">
                               <Image
                                 className="cursor-pointer"
-                                src="/assets/others/plan.svg"
+                                src={plan}
                                 alt="plan"
                                 width={30}
                                 height={30}
@@ -200,7 +206,7 @@ export default async function Home() {
                             <div id="share" className="relative w-6">
                               <Image
                                 className="cursor-pointer"
-                                src="/assets/others/share.svg"
+                                src={share}
                                 alt="share"
                                 width={30}
                                 height={30}
@@ -209,7 +215,7 @@ export default async function Home() {
                             <div id="report" className="relative w-6">
                               <Image
                                 className="cursor-pointer"
-                                src="/assets/others/report.svg"
+                                src={report}
                                 alt="report"
                                 width={30}
                                 height={30}
