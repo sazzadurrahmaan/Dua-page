@@ -82,7 +82,7 @@ function AudioPlayer({ audioSrc }) {
     <div className="py-4 flex flex-row items-center xs:w-full xs:gap-x-4">
       {audioSrc && <audio ref={audioRef} src={audioSrc} crossOrigin="anonymous" />}
 
-      {audioSrc && 
+      {audioSrc &&
         <div className="flex flex-row items-center gap-x-3 xs:w-full">
           <Image
             className="cursor-pointer xs:w-8"

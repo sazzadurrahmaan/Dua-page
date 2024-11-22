@@ -29,16 +29,16 @@ export default async function Home() {
 
   return (
     <>
-    {/* ---Start middle part--- */}
-    <div className="col-span-12 xl:col-span-9 row-span-11 flex gap-4 justify-center">
-      {/* ---Start Category----- */}
-      <Categories
+      {/* ---Start middle part--- */}
+      <div className="col-span-12 xl:col-span-9 row-span-11 flex gap-4 justify-center">
+        {/* ---Start Category----- */}
+        <Categories
           categories={categories}
           subcategories={subcategories}
           duas={duas}
         />
-      {/* ---End Category----- */}
-      <div className="w-[98%] md:w-[75%] overflow-y-auto scrollbar-thin ">
+        {/* ---End Category----- */}
+        <div className="w-[98%] md:w-[75%] overflow-y-auto scrollbar-thin ">
           <div className="flex flex-row justify-between mb-5 px-5 py-4 bg-white rounded-2lg items-center cursor-pointer dark:bg-dark-bg md:hidden">
             <p className="flex gap-x-2 style-Kalpurush text-title font-medium leading-[25px]  dark:text-dark-text text-mss ">
               <svg
@@ -232,6 +232,6 @@ export default async function Home() {
       </div>
 
       {/* ---End body---- */}
-  </>
+    </>
   );
 }
