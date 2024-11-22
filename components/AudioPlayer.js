@@ -82,7 +82,7 @@ function AudioPlayer({ audioSrc }) {
     <div className="py-4 flex flex-row items-center xs:w-full xs:gap-x-4">
       {audioSrc && <audio ref={audioRef} src={audioSrc} crossOrigin="anonymous" />}
 
-      {audioSrc ? (
+      {audioSrc && 
         <div className="flex flex-row items-center gap-x-3 xs:w-full">
           <Image
             className="cursor-pointer xs:w-8"
@@ -112,10 +112,7 @@ function AudioPlayer({ audioSrc }) {
               {formatTime(currentTime)} / {formatTime(duration)}
             </p>
           </div>
-        </div>
-      ) : (
-        <p className="text-red-500">Audio source not available.</p>
-      )}
+        </div>}
 
       <div className={isPlaying ? "" : "hidden"}>
         <Image
@@ -128,7 +125,7 @@ function AudioPlayer({ audioSrc }) {
         />
       </div>
 
-      {error && <p className="text-red-500">Error: {error}</p>}
+      {error && <p className="text-red-500">{error}</p>}
     </div>
   );
 }
